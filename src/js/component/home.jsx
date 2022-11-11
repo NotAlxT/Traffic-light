@@ -2,25 +2,70 @@ import React from "react";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
+import { useState } from "react";
 
 //create your first component
-const Home = () => {
+
+
+
+const TrafficLight = () => {
+	const [ color, setColor] = useState("");
+	console.log(color)
+		if (color == "red"){
+			return(
+			<div>
+			<div className="circle red selected" onClick={()=> setColor("")}>
+			</div>
+			<div className="circle yellow "onClick={()=> setColor("yellow")}>
+			</div>
+			<div className="circle green"onClick={()=> setColor("green")}>
+			</div>
+    	</div>)
+		}
+		if (color == "yellow"){
+			return(
+			<div>
+			<div className="circle red" onClick={()=> setColor("red")}>
+
+			</div>
+			<div className="circle yellow selected"onClick={()=> setColor("")}>
+
+			</div>
+			<div className="circle green"onClick={()=> setColor("green")}>
+
+			</div>
+      
+    	</div>)
+		}
+		if (color == "green"){
+			return(
+			<div>
+			<div className="circle red" onClick={()=> setColor("red")}>
+
+			</div>
+			<div className="circle yellow "onClick={()=> setColor("yellow")}>
+
+			</div>
+			<div className="circle green selected"onClick={()=> setColor("")}>
+
+			</div>
+      
+    	</div>)
+		}
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+		<div>
+			<div className="circle red" onClick={()=> setColor("red")}>
+
+			</div>
+			<div className="circle yellow "onClick={()=> setColor("yellow")}>
+
+			</div>
+			<div className="circle green"onClick={()=> setColor("green")}>
+
+			</div>
+      
+    	</div>
 	);
 };
 
-export default Home;
+export default TrafficLight;
